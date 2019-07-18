@@ -1,9 +1,6 @@
 title: Creative Futures
-description: 
+description:
 
 include: ["_pages"]
 permalink: /:title/
 category-list: [cards]
-
-sass:
-  sass_dir: assets/css
