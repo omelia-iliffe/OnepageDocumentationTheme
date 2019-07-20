@@ -1,0 +1,10 @@
+<div id="{{include.id}}" class="col-12 col-lg-10 col-xl-8 mx-auto mb-3">
+
+  <div class="row">
+  {% for image in include.images %}
+    <div class="img-fliud col-6 col-xl-4 p-2 {% if forloop.first %}active{% endif %}">
+      <img class="d-block w-100" src="{{image}}">
+    </div>
+  {% endfor %}
+  </div>
+</div>

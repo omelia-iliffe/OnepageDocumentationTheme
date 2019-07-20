@@ -1,5 +1,5 @@
 {% if include.images.size > 1 %}
-  <div id="{{include.id}}" class="carousel slide col-12 col-lg-8 mx-auto mb-3" data-ride="carousel">
+  <div id="{{include.id}}" class="carousel slide col-12 col-lg-10 col-xl-8 mx-auto mb-3" data-ride="carousel">
     <ol class="carousel-indicators">
     {% for image in include.images %}
       <li data-target="#{{include.id}}" data-slide-to="{{forloop.index}}"></li>
@@ -20,7 +20,7 @@
     </a>
   </div>
 {% else %}
-  <figure id="{{include.id}}" class="col-12 col-lg-8 mx-auto mb-3">
+  <figure id="{{include.id}}" class="col-12 col-12 col-lg-10 col-xl-8 mx-auto mb-3">
     <img class="d-block w-100" src="{{include.images.first}}">
     <figcaption>{{include.caption}}</figcaption>
   </figure>

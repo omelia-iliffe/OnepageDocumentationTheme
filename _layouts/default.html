@@ -3,38 +3,17 @@
 
   {% include head.html %}
 
-  <body class="bg-light" data-spy="scroll" data-offset="50">
-    <div class="main container px-0 px">
-
-      {% include title.html %}
-
-      {% if page.navbar %}
-      <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
-        <a class="navbar-brand" data-toggle="collapse" data-target="navbar" href="#">{{page.title}}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbar">
-          <ul class="navbar-nav">
-            {% for link in page.navbar %}
-              <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-target="navbar" href="#{{link | replace: " ","-" | downcase}}">{{link}}</a></li>
-            {% endfor %}
-          </ul>
-          {% if page.navbarbutton %}
-          <a class="nav-link btn btn-outline-light" href="{{page.navbarbutton[1]}}">{{page.navbarbutton[0]}}</a>
-          {% endif %}
+  <body>
+    <div class="container-fluid">
+      <div class="row my-3">
+        <div class="col pt-sm-5 pt-3">
+            <div class="tab-pane fade show active" id="{{page.title | replace: " ","-" | downcase }}" role="tabpanel" aria-labelledby="{{page.title | replace: " ","-" | downcase }}-tab">
+              <h1>{{page.title}} <small class="text-muted">{{page.description}}</small></h1><hr/>
+              {{page.content | markdownify}}
+            </div>
         </div>
-      </nav>
-      {% endif %}
-
-      <div class="content px-5" id="top">
-
-              {{ content }}
 
       </div>
-
-      {% include footer.html %}
-
     </div>
   </body>
 </html>

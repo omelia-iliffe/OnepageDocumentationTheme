@@ -1,19 +1,14 @@
+  <h1>{{ include.title | default: site.github.repository_name }}</h1>
+  <hr/>
+  <h3>{{ include.description | default: site.github.project_tagline }}</h3>
 
-{% if include.navstyle=="pills-sticky" %}
+  <div class="nav flex-column nav-pills my-3" id="tab" role="tablist" aria-orientation="vertical">
 
-    <h1>{{ page.onepage-title | default: site.github.repository_name }}</h1>
-    <hr/>
-    <h3>{{ page.description | default: site.github.project_tagline }}</h3>
-
-    <div class="nav flex-column nav-pills my-3" id="tab" role="tablist" aria-orientation="vertical">
-
-      <a class="nav-link active " id="{{page.title | replace: ' ','-' | downcase }}-tab" data-toggle="pill" href="#{{page.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{page.title | replace: ' ','-'}}" aria-selected="true">Overview</a>
-      {% assign sorted_pages = site.pages | sort:"order" %}
-      {% for navpage in sorted_pages %}
-        {% if navpage.title != page.title  and navpage.layout == "onepage" and navpage.hidden != true %}
-          <a class="nav-link } " id="{{navpage.title | replace: ' ','-' | downcase }}-tab" data-toggle="pill" href="#{{navpage.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{navpage.title | replace: ' ','-'}}" aria-selected="false">{{navpage.title}}</a>
-        {% endif %}
-      {% endfor %}
-    </div>
-
-{% endif %}
+    <a class="nav-link active " id="{{page.title | replace: ' ','-' | downcase }}-tab" data-toggle="pill" href="#{{page.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{page.title | replace: ' ','-'}}" aria-selected="true">Overview</a>
+    {% assign sorted_pages = site.pages | sort:"order" %}
+    {% for navpage in sorted_pages %}
+      {% if navpage.title != page.title and navpage.onepage-id == page.onepage-id and navpage.hidden != true %}
+        <a class="nav-link } " id="{{navpage.title | replace: ' ','-' | downcase }}-tab" data-toggle="pill" href="#{{navpage.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{navpage.title | replace: ' ','-'}}" aria-selected="false">{{navpage.title}}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
