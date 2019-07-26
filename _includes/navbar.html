@@ -1,10 +1,10 @@
-  <h1>{{ include.title | default: site.github.repository_name }}</h1>
+  <h1>{{ include.nav-header | default: site.nav-header | default: site.github.repository_name}}</h1>
   <hr/>
-  <h3>{{ include.description | default: site.github.project_tagline }}</h3>
+  <h4>{{ include.nav-description | default: site.nav-description | default: site.github.project_tagline }}</h4>
 
   <div class="nav flex-column nav-pills my-3" id="tab" role="tablist" aria-orientation="vertical">
 
-    <a class="nav-link active " id="{{page.title | replace: ' ','-' | downcase }}-tab" data-toggle="pill" href="#{{page.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{page.title | replace: ' ','-'}}" aria-selected="true">Overview</a>
+    <a class="nav-link active " id="{{page.title | replace: ' ','-' | downcase }}-tab" data-toggle="pill" href="#{{page.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{page.title | replace: ' ','-'}}" aria-selected="true">{{page.nav-title | default: page.title}}</a>
     {% assign sorted_pages = site.pages | sort:"order" %}
     {% for navpage in sorted_pages %}
       {% if navpage.title != page.title and navpage.onepage-id == page.onepage-id and navpage.hidden != true %}
