@@ -3,8 +3,25 @@
 
 
 $theme-colors: (
-  primary: {{site.primaryColour | default: "#007bff"}},
-  secondary: {{site.secondaryColour | default: "#6c757d"}}
+  {% for color in site.colors %}
+    {{color.name}}: {{color.color}} {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  // primary: {{site.primaryColour | default: "#007bff"}},
+  // secondary: {{site.secondaryColour | default: "#6c757d"}}
+
 );
 
 @import 'bootstrap.scss';
+
+@mixin nav-color-variant($parent, $color, $theme) {
+  .nav-pills .nav-link.active#{$parent} {
+    background-color: $color !important;
+  }
+  .nav-pills .nav-link#{$parent}:not(.active) {
+    @extend .text-#{$theme};
+  }
+}
+
+@each $color, $value in $theme-colors {
+  @include nav-color-variant(".nav-#{$color}", $value, $color);
+}

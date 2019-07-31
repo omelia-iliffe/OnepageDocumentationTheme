@@ -1,7 +1,5 @@
 ---
-layout: onepage
-onepage-id: 1
-title: "A Page"
+title: "A Standalone Page"
 description: "with description"
 
 exampleGallery: ["https://via.placeholder.com/1920x1080.png?text=Example+Image+2",
@@ -9,6 +7,7 @@ exampleGallery: ["https://via.placeholder.com/1920x1080.png?text=Example+Image+2
                 "https://via.placeholder.com/1920x1080.png?text=Example+Image+4",
                 "https://via.placeholder.com/1920x1080.png?text=Example+Image+5"]
 
+permalink: /singlepage/
 ---
 ## Sub-heading
 

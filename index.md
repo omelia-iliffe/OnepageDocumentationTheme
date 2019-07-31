@@ -1,8 +1,9 @@
 ---
 layout: onepage
-onepage-title: "Creative Futures"
-navstyle: "pills-sticky"
+onepage-id: 1
 colour: "default"
 title: "Overview"
 ---
-THIS IS THE OVERVIEW PAGE
+This is a main overview page index.md
+
+It can contain an introduction to your project, website, etc.
