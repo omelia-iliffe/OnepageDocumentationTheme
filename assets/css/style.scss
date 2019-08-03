@@ -25,3 +25,29 @@ $theme-colors: (
 @each $color, $value in $theme-colors {
   @include nav-color-variant(".nav-#{$color}", $value, $color);
 }
+
+.nav-vertical {
+  display:block;
+  align-items: normal;
+}
+
+.sticky-top {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+      @include media-breakpoint-down($breakpoint) {
+
+      }
+
+      @include media-breakpoint-up($next) {
+        @supports (position: sticky) {
+          position: sticky;
+          top: 0;
+          z-index: $zindex-sticky;
+        }
+      }
+    }
+  }
+}

@@ -1,14 +1,22 @@
-  <h1>{{ include.nav-header | default: site.nav-header | default: site.github.repository_name}}</h1>
-  <hr/>
-  <h4>{{ include.nav-description | default: site.nav-description | default: site.github.project_tagline }}</h4>
+<h1>{{ include.nav-header | default: site.nav-header | default: site.github.repository_name}}</h1>
+<hr/>
+<div class="navbar-expand-md navbar-light ">
+  <div class="navbar-brand">
 
-  <div class="nav flex-column nav-pills my-3" id="tab" role="tablist" aria-orientation="vertical">
+    <h4>{{ include.nav-description | default: site.nav-description | default: site.github.project_tagline }}</h4>
+  </div>
 
-    <a class="nav-link active nav-{{page.nav-color}}" id="{{page.title | replace: ' ','-' | downcase }}-tab" data-toggle="pill" href="#{{page.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{page.title | replace: ' ','-'}}" aria-selected="true">{{page.nav-title | default: page.title}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navPills" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="float:right;">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="nav navbar-collapse collapse flex-column nav-pills nav-vertical my-3" role="tablist" id="navPills" aria-orientation="vertical">
+
+    <a class="nav-link active nav-{{page.nav-color}}" id="{{page.title | replace: ' ','-' | downcase }}-tab" onClick="setTimeout(function(){$('#navPills').collapse('hide')},200)" data-toggle="pill" href="#{{page.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{page.title | replace: ' ','-'}}" aria-selected="true">{{page.nav-title | default: page.title}}</a>
     {% assign sorted_pages = site.pages | sort:"order" %}
     {% for navpage in sorted_pages %}
       {% if navpage.title != page.title and navpage.onepage-id == page.onepage-id and navpage.hidden != true %}
-        <a class="nav-link nav-{{navpage.nav-color}}" id="{{navpage.title | replace: ' ','-' | downcase }}-tab" data-toggle="pill" href="#{{navpage.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{navpage.title | replace: ' ','-'}}" aria-selected="false">{{navpage.title}}</a>
+        <a class="nav-link nav-{{navpage.nav-color}}" id="{{navpage.title | replace: ' ','-' | downcase }}-tab" onClick="setTimeout(function(){$('#navPills').collapse('hide')},200)" data-toggle="pill" href="#{{navpage.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{navpage.title | replace: ' ','-'}}" aria-selected="false">{{navpage.nav-title | default: navpage.title}}</a>
       {% endif %}
     {% endfor %}
   </div>
+</div>
