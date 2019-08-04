@@ -25,14 +25,4 @@
       $('.nav-pills').stickyTabs();
     });
   </script>
-  <script>
-    $.wait = function( callback, milliseconds){
-       return window.setTimeout( callback, milliseconds );
-    }
-    $(document).ready(function () {
-      $(".navbar-nav li a").click(function(event) {
-        $.wait( function(){ $(".navbar-collapse").collapse('hide') }, 600);
-      });
-    });
-  </script>
 </head>

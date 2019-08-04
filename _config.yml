@@ -11,7 +11,7 @@ colors:
     color: "#fc4a1a"
 
 
-baseurl: "" #this is the name of your repository and is used to make your urls work. eg for harryiliffe.github.io/open-design-2018/ the baseurl would be "/open-design-2018"
+baseurl: "/OnepageDocumentationTheme" #this is the name of your repository and is used to make your urls work. eg for harryiliffe.github.io/open-design-2018/ the baseurl would be "/open-design-2018"
 
 # Probably dont edit this stuff!
 include: ["_pages"]
