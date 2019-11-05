@@ -11,11 +11,11 @@
   </button>
   <div class="nav navbar-collapse collapse flex-column nav-pills nav-vertical my-3" role="tablist" id="navPills" aria-orientation="vertical">
 
-    <a class="nav-link active nav-{{page.nav-color}}" id="{{page.title | replace: ' ','-' | downcase }}-tab" onClick="setTimeout(function(){$('#navPills').collapse('hide')},200)" data-toggle="pill" href="#{{page.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{page.title | replace: ' ','-'}}" aria-selected="true">{{page.nav-title | default: page.title}}</a>
+    <a class="nav-link active nav-{{page.nav-color | default: 'primary'}}" id="{{page.title | replace: ' ','-' | downcase }}-tab" onClick="setTimeout(function(){$('#navPills').collapse('hide')},200)" data-toggle="pill" href="#{{page.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{page.title | replace: ' ','-'}}" aria-selected="true">{{page.nav-title | default: page.title}}</a>
     {% assign sorted_pages = site.pages | sort:"order" %}
     {% for navpage in sorted_pages %}
       {% if navpage.title != page.title and navpage.onepage-id == page.onepage-id and navpage.hidden != true %}
-        <a class="nav-link nav-{{navpage.nav-color}}" id="{{navpage.title | replace: ' ','-' | downcase }}-tab" onClick="setTimeout(function(){$('#navPills').collapse('hide')},200)" data-toggle="pill" href="#{{navpage.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{navpage.title | replace: ' ','-'}}" aria-selected="false">{{navpage.nav-title | default: navpage.title}}</a>
+        <a class="nav-link nav-{{navpage.nav-color | default: 'primary'}}" id="{{navpage.title | replace: ' ','-' | downcase }}-tab" onClick="setTimeout(function(){$('#navPills').collapse('hide')},200)" data-toggle="pill" href="#{{navpage.title | replace: ' ','-' | downcase }}" role="tab" aria-controls="{{navpage.title | replace: ' ','-'}}" aria-selected="false">{{navpage.nav-title | default: navpage.title}}</a>
       {% endif %}
     {% endfor %}
   </div>

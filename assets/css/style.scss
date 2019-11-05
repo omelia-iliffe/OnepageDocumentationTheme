@@ -1,6 +1,7 @@
 ---
 ---
-
+// @import "functions";
+// @import "variables";
 
 $theme-colors: (
   {% for color in site.colors %}
@@ -11,7 +12,11 @@ $theme-colors: (
 
 );
 
-@import 'bootstrap.scss';
+{% for color in site.colors %}
+  ${{color.name}}: {{color.color}};
+{% endfor %}
+
+@import 'bootstrap';
 
 @mixin nav-color-variant($parent, $color, $theme) {
   .nav-pills .nav-link.active#{$parent} {
